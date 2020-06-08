@@ -1,0 +1,11 @@
+[user]
+	name = Alan Potter
+	email = alanjpotter@gmail.com
+[alias]
+    s = status
+    co = checkout
+    one = log --oneline
+[color]
+	ui = never
+[core]
+	excludesfile = /Users/ajp/.gitignore

@@ -127,3 +127,5 @@ cli5() {
   local cukenet=${cukenet:= cukenet}
   docker run -e CONJUR_APPLIANCE_URL="$appliance_url" -e CONJUR_ACCOUNT=cucumber -it --rm --net $cukenet cyberark/conjur-cli:5 "$@"
 }
+
+alias g=git

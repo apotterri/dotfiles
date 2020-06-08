@@ -31,3 +31,10 @@ if [ -f '/Users/ajp/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/U
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ajp/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/ajp/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
+eval "$(rbenv init -)"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+

@@ -20,11 +20,12 @@
  '(grep-find-command
    "find . -type f -a ! \\( -name '*~' \\) -print0 | xargs -0 grep -nH -e ")
  '(groovy-indent-offset 2)
+ '(js-indent-level 2)
  '(ns-command-modifier (quote meta))
  '(package-selected-packages
    (quote
     (exec-path-from-shell ag go-projectile projectile flycheck go-mode haml-mode magit yaml-mode groovy-mode markdown-mode feature-mode company)))
- '(prog-mode-hook (quote (flyspell-prog-mode linum-mode)))
+ '(prog-mode-hook (quote (flyspell-prog-mode linum-mode subword-mode)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(scroll-bar-mode nil)
  '(sh-basic-offset 2)
@@ -35,7 +36,8 @@
  '(tab-width 4)
  '(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
  '(tool-bar-mode nil)
- '(tooltip-mode nil))
+ '(tooltip-mode nil)
+ '(vc-follow-symlinks nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -64,7 +66,7 @@
 (global-unset-key "\C-z")
 
 (global-set-key (kbd "C-M-SPC") 'fixup-whitespace)
-
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 (require 'go-mode)
 (defun my-go-mode-hook ()
   ;; (setq gofmt-command "/Users/ajp/go/bin/goimports")
@@ -87,5 +89,7 @@
 ;;(require 'go-mode-autoloads)
 ;;(add-hook 'before-save-hook 'gofmt-before-save)
 
-(exec-path-from-shell-initialize)
+; (exec-path-from-shell-initialize)
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
+
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
