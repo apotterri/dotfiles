@@ -6,11 +6,15 @@ export CONJUR_MAJOR_VERSION=4
 export LESS=-iRX
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+source "$HOME/lib/mgalgs/fuzzy_bash_completion/fuzzy_bash_completion"
+fuzzy_setup_for_command cd
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 for c in git-prompt.sh git-completion.bash docker; do
   source /usr/local/etc/bash_completion.d/"$c"
 done
+complete -F __git_wrap__git_main g
 
 # __docker_complete_containers_running dbash
 

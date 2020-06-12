@@ -14,6 +14,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-save-timeout 600)
  '(before-save-hook nil)
  '(blink-cursor-mode nil)
  '(confirm-kill-emacs (quote y-or-n-p))
@@ -21,10 +22,15 @@
    "find . -type f -a ! \\( -name '*~' \\) -print0 | xargs -0 grep -nH -e ")
  '(groovy-indent-offset 2)
  '(js-indent-level 2)
+ '(js2-bounce-indent-p t)
+ '(js2-global-externs (quote ("URL" "chrome" "setTimeout" "clearTimeout")))
+ '(magit-auto-revert-immediately nil)
+ '(magit-auto-revert-mode nil)
+ '(magit-auto-revert-tracked-only nil)
  '(ns-command-modifier (quote meta))
  '(package-selected-packages
    (quote
-    (exec-path-from-shell ag go-projectile projectile flycheck go-mode haml-mode magit yaml-mode groovy-mode markdown-mode feature-mode company)))
+    (js2-mode web-mode exec-path-from-shell ag go-projectile projectile flycheck go-mode haml-mode magit yaml-mode groovy-mode markdown-mode feature-mode company)))
  '(prog-mode-hook (quote (flyspell-prog-mode linum-mode subword-mode)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(scroll-bar-mode nil)
@@ -37,7 +43,8 @@
  '(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
- '(vc-follow-symlinks nil))
+ '(vc-follow-symlinks nil)
+ '(web-mode-markup-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

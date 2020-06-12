@@ -129,3 +129,4 @@ cli5() {
 }
 
 alias g=git
+alias gu=gitup

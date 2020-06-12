@@ -4,3 +4,5 @@ export PATH=$HOME/bin:$PATH:$HOME/go/bin
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export EDITOR=vi

@@ -5,7 +5,16 @@
     s = status
     co = checkout
     one = log --oneline
+    prb = "!f() { git checkout -b \"$@\"_$(date +'%Y%m%d'); }; f"
+    fix = commit --fixup
+    pushf = push --force-with-lease
+    amend = commit --amend
+    amendf = commit --amend --no-edit
+    ras = rebase -i --autosquash origin/master
+    rbc = rebase --continue
 [color]
-	ui = never
+    ui = never
 [core]
 	excludesfile = /Users/ajp/.gitignore
+[push]
+	default = upstream
