@@ -18,19 +18,22 @@
  '(before-save-hook nil)
  '(blink-cursor-mode nil)
  '(confirm-kill-emacs (quote y-or-n-p))
+ '(enh-ruby-bounce-deep-indent nil)
+ '(enh-ruby-deep-indent-construct nil)
  '(grep-find-command
    "find . -type f -a ! \\( -name '*~' \\) -print0 | xargs -0 grep -nH -e ")
  '(groovy-indent-offset 2)
  '(js-indent-level 2)
  '(js2-bounce-indent-p t)
  '(js2-global-externs (quote ("URL" "chrome" "setTimeout" "clearTimeout")))
+ '(js2-mode-assume-strict t)
  '(magit-auto-revert-immediately nil)
  '(magit-auto-revert-mode nil)
  '(magit-auto-revert-tracked-only nil)
  '(ns-command-modifier (quote meta))
  '(package-selected-packages
    (quote
-    (js2-mode web-mode exec-path-from-shell ag go-projectile projectile flycheck go-mode haml-mode magit yaml-mode groovy-mode markdown-mode feature-mode company)))
+    (enh-ruby-mode js2-mode web-mode exec-path-from-shell ag go-projectile projectile flycheck go-mode haml-mode magit yaml-mode groovy-mode markdown-mode feature-mode company)))
  '(prog-mode-hook (quote (flyspell-prog-mode linum-mode subword-mode)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(scroll-bar-mode nil)
@@ -100,3 +103,7 @@
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(put 'set-goal-column 'disabled nil)
+
+(set-register ?z "require 'pry'; binding.pry")
+(setcdr (cl-rassoc 'ruby-mode auto-mode-alist) 'enh-ruby-mode)
