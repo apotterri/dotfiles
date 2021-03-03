@@ -10,11 +10,15 @@
     pushf = push --force-with-lease
     amend = commit --amend
     amendf = commit --amend --no-edit
+    af = "!f() { git amendf && git pushf; }; f"
     ras = rebase -i --autosquash origin/master
+    rbsq = rebase -i --autosquash    
     rbc = rebase --continue
     # Diff the modified files in the stash against the working
     # copy. Useful to see if the stash has already been applied.
     stash-diff = "!f() { local stash=\"${@-stash@{0}}\"; git stash show $stash --name-status | grep ^M | while read status file; do echo $file; git diff $stash:$file -- $file | cat; done; }; f"
+    nxd = clean -nxd
+    fxd = clean -fxd
 [color]
     ui = never
 [core]
@@ -23,3 +27,18 @@
 	default = current
 [pull]
 	ff = only
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	template = /Users/ajp/.stCommitMsg
+[advice]
+	detachedHead = false
