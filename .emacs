@@ -149,6 +149,7 @@
 
 (add-hook 'python-mode-hook (lambda()
                               (set-register ?z "import pdb; pdb.set_trace()")
+                              (set-register ?x "pdb.set_trace()")
                               (setq display-fill-column-indicator-column 79)
                               (set-face-foreground 'fill-column-indicator "light grey")
                               (display-fill-column-indicator-mode)))
@@ -159,3 +160,5 @@
 ;;python files.
 ;; ((python-mode (eval add-hook 'python-mode-hook
 ;;#'flymake-python-pyflakes-load)))
+
+(global-set-key "\M-," 'compile)

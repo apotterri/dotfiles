@@ -6,7 +6,7 @@ set -k
 setopt prompt_subst pushdignoredups no_banghist ignore_eof
 set -o emacs
 
-WORDCHARS='*?~&;!#$%^(){}<>-'
+WORDCHARS='*?~&;!#$%^(){}<>'
 
 _dbsh() {
   set -x
@@ -89,8 +89,9 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 eval "$(pyenv init -)"
+# eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
-
+export PIP_REQUIRE_VIRTUALENV=true
 
 travis_debug() {
 curl -s -X POST \

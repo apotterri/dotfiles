@@ -1,3 +1,4 @@
+set -o ignoreof
 
 _dbsh() {
   set -x

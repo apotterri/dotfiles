@@ -2,7 +2,8 @@
 	name = Alan Potter
 	email = alanjpotter@gmail.com
 [alias]
-    s = "!f() { git status \"$@\"; GIT_PAGER=cat git stash list; }; f"
+    s = !git_status.sh
+    sr = "!f() { git status \"$@\"; GIT_PAGER=cat git stash list; }; f"
     co = checkout
     one = log --oneline
     prb = "!f() { [[ ! -z \"$@\" ]] && git checkout -b \"$@\"_$(date +'%Y%m%d') || echo 'Need branch name!'; }; f"
@@ -19,6 +20,8 @@
     stash-diff = "!f() { local stash=\"${@-stash@{0}}\"; git stash show $stash --name-status | grep ^M | while read status file; do echo $file; git diff $stash:$file -- $file | cat; done; }; f"
     nxd = clean -nxd
     fxd = clean -fxd
+    # ghclone = "!f() { local dir=$(echo \"$@\" | sed \"s/git@github.com/\(.*\).git/\1/\"); git clone \"$@\" $dir; }; f"
+    ghclone = "!f() { set -x; local dir=$(echo \"$@\" | sed \"s/git@github.com:\\(.*\\).git/\\1/\"); git clone \"$@\" $dir; }; f"
 [color]
     ui = never
 [core]
