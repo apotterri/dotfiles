@@ -2,9 +2,9 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-;;(require 'package)
+(require 'package)
 ;;(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;;(package-initialize)
+(package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -117,7 +117,7 @@
 ; (exec-path-from-shell-initialize)
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.[jt]s\\'" . js2-mode))
 (put 'set-goal-column 'disabled nil)
 
 (add-hook 'ruby-mode-hook (lambda()
@@ -128,7 +128,7 @@
 (server-start)
 
 (add-hook 'java-mode-hook (lambda ()
-                            (setq c-basic-offset 4)))
+                            (setq c-basic-offset 2)))
 
 (require 'ws-butler)
 (add-hook 'prog-mode-hook #'ws-butler-mode)

@@ -3,34 +3,47 @@
 	email = alanjpotter@gmail.com
 [alias]
     s = !git_status.sh
+    stm = stash push -m
     sr = "!f() { git status \"$@\"; GIT_PAGER=cat git stash list; }; f"
     co = checkout
     one = log --oneline
+    onens = log --oneline --name-status
+    onea = log --format=\"%C(auto) %h %an %d %s\"
+
     prb = "!f() { [[ ! -z \"$@\" ]] && git checkout -b \"$@\"_$(date +'%Y%m%d') || echo 'Need branch name!'; }; f"
     fix = commit --fixup
     pushf = push --force-with-lease
+    pushfn = push --force-with-lease --no-verify
     amend = commit --amend
     amendf = commit --amend --no-edit
+    amendfn = commit --amend --no-edit --no-verify
     af = "!f() { git amendf && git pushf; }; f"
-    ras = rebase -i --autosquash origin/master
-    rbsq = rebase -i --autosquash    
+    afn = "!f() { git amendf && git pushf --no-verify; }; f"
+    ras = "!f() { git rebase -i --autosquash \"origin/${@:-master}\"; }; f"
     rbc = rebase --continue
     # Diff the modified files in the stash against the working
     # copy. Useful to see if the stash has already been applied.
     stash-diff = "!f() { local stash=\"${@-stash@{0}}\"; git stash show $stash --name-status | grep ^M | while read status file; do echo $file; git diff $stash:$file -- $file | cat; done; }; f"
-    nxd = clean -nxd
-    fxd = clean -fxd
-    # ghclone = "!f() { local dir=$(echo \"$@\" | sed \"s/git@github.com/\(.*\).git/\1/\"); git clone \"$@\" $dir; }; f"
-    ghclone = "!f() { set -x; local dir=$(echo \"$@\" | sed \"s/git@github.com:\\(.*\\).git/\\1/\"); git clone \"$@\" $dir; }; f"
+    nxd = clean -nxd --exclude .envrc --exclude .tool-versions --exclude .vscode --exclude .tox
+    fxd = clean -fxd --exclude .envrc --exclude .tool-versions --exclude .vscode --exclude .tox
+    ghclone = "!ghclone"
+    ci="!f() { env COLUMNS=3 git clean -i \"$@\"; }; f"
+    rmgone = "!f() { git branch -v | grep gone | awk '{print $1}' | xargs git branch \"${@--d}\"; }; f"
+
+	files = diff-tree --no-commit-id --name-only -r
+    # ghclone = "!f() { set -x; local dir=$(echo \"$@\" | sed \"s/git@github.com:\\(.*\\).git/\\1/\"); git clone \"$@\" $dir; }; f"
+   ad = difftool --tool=araxis --dir-diff
+   ads = difftool --tool=araxis --dir-diff --staged
 [color]
     ui = never
 [core]
 	excludesfile = /Users/ajp/.gitignore
+	logAllRefUpdates = true
 [push]
 	default = current
 [pull]
 	ff = only
-[difftool "sourcetree"]
+[difftool "opendiff"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
@@ -45,3 +58,25 @@
 	template = /Users/ajp/.stCommitMsg
 [advice]
 	detachedHead = false
+[init]
+	defaultBranch = main
+[stash]
+	showIncludeUntracked = true
+    showPatch = true
+[status]
+    showStash = true
+[cola]
+	expandtab = true
+[diff]
+	tool = opendiff
+[difftool "bcomp"]
+  trustExitCode = true
+  cmd = "/usr/local/bin/bcomp" \"$LOCAL\" \"$REMOTE\"
+  prompt = false
+[rebase]
+	updateRefs = true
+[git]
+	autoRefresh = false
+	autoFetch = false
+[grep]
+	extendedRegexp = true

@@ -7,3 +7,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 export EDITOR=vi
 source "$HOME/.cargo/env"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/Users/ajp/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<
