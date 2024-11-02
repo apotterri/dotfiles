@@ -1,0 +1,65 @@
+lastupdatecheck: 1729846647
+recentrepos:
+    - /Users/ajp/dotfiles
+    - /Users/ajp/src/applandinc/appmap-js
+    - /Users/ajp/src/applandinc/vscode-appland
+    - /Users/ajp/src/applandinc/appland-server
+    - /Users/ajp/src/applandinc/appmap-intellij-plugin
+    - /Users/ajp/src/apotterri/python-main
+    - /Users/ajp/src/applandinc/worktrees/appmap-js
+    - /Users/ajp/src/applandinc/navie-benchmark
+    - /Users/ajp/src/applandinc/appmap-java
+    - /Users/ajp/src/applandinc/appmap-python
+    - /Users/ajp/src/applandinc/SWE-bench
+    - /Users/ajp/src/apotterri/django-example
+    - /Users/ajp/src/finos/waltz
+    - /Users/ajp/src/sympy/sympy
+    - /Users/ajp/src/pylint-dev/pylint
+    - /Users/ajp/src/applandinc/worktrees/SWE-bench/submodules/appmap-js
+    - /Users/ajp/src/applandinc/applandinc.github.io
+    - /Users/ajp/src/django/worktrees/django-4.2
+    - /Users/ajp/src/django/django
+    - /Users/ajp/src/applandinc/worktrees/appmap-python
+    - /Users/ajp/src/pytest-dev/pytest
+    - /Users/ajp/src/jesseduffield/lazygit
+    - /Users/ajp/src/applandinc/worktrees/SWE-bench
+    - /Users/ajp/src/django-oscar/django-oscar
+    - /Users/ajp/src/applandinc/SWE-bench/submodules/appmap-js
+    - /Users/ajp/src/spring-guides/tut-spring-boot-kotlin
+    - /Users/ajp/src/django/worktrees/django-5.0
+    - /Users/ajp/src/django/worktrees/django-4.1
+    - /Users/ajp/src/django/worktrees/django-3.2
+    - /Users/ajp/src/django/worktrees/django-3.1
+    - /Users/ajp/src/applandinc/appmap-ruby
+    - /Users/ajp/src/apotterri/appmap-python-doc
+    - /Users/ajp/src/land-of-apps/land-of-apps/apps/django-oscar
+    - /Users/ajp/src/apotterri/flask-test
+    - /Users/ajp/src/microsoft/python-sample-vscode-fastapi-tutorial
+    - /Users/ajp/src/openjdk/jdk11u
+    - /Users/ajp/src/applandinc/appmap-java/agent/test/scala/play-samples
+    - /Users/ajp/src/tinylog-org/tinylog
+    - /Users/ajp/src/apotterri/bashunit
+    - /Users/ajp/src/spring-guides/gs-testing-web
+    - /Users/ajp/src/applandinc/worktrees/appmap-java
+    - /Users/ajp/src/land-of-apps/flowable-engine
+    - /Users/ajp/src/jboss-javassist/javassist
+    - /Users/ajp/src/apotterri/ejb-example
+    - /Users/ajp/src/asm0dey/opdsko
+    - /Users/ajp/src/applandinc/appmap-gradle-plugin
+    - /Users/ajp/src/applandinc/appmap-maven-plugin
+startuppopupversion: 5
+lastversion: b602e848
+customcommandshistory:
+    - e
+    - prb junit-extensions
+    - prb
+    - prb no-appmap-anno
+    - git prb junit5-extensions
+hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+renamesimilaritythreshold: 50
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always

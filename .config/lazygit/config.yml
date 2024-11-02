@@ -1,0 +1,14 @@
+gui:
+  scrollHeight: 0.5
+  expandFocusedSidePanel: true
+  theme:
+    selectedLineBgColor:
+    - reverse
+    - bold
+confirmOnQuit: true
+quitOnTopLevelReturn: true
+promptToReturnFromSubprocess: false
+skipRewordInEditorWarning: false
+notARepository: skip
+git:
+  autoRefresh: false
