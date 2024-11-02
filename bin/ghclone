@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+repo="$1"; shift
+dir=$(echo "$repo" | gsed "s;\(git@github.com:\|https://github.com/\)\(.*\).git;\2;")
+if [[ $dir == $repo ]]; then
+  echo "Remote substitution failed"
+  exit 1
+fi
+git clone "$repo" "$@" $dir
