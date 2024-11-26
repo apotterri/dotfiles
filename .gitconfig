@@ -1,6 +1,3 @@
-[user]
-	name = Alan Potter
-	email = alanjpotter@gmail.com
 [alias]
     s = !git_status.sh
     stm = stash push -m
@@ -46,9 +43,6 @@
 [difftool "opendiff"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -68,7 +62,8 @@
 [cola]
 	expandtab = true
 [diff]
-	tool = opendiff
+    external = difft
+
 [difftool "bcomp"]
   trustExitCode = true
   cmd = "/usr/local/bin/bcomp" \"$LOCAL\" \"$REMOTE\"
@@ -80,3 +75,13 @@
 	autoFetch = false
 [grep]
 	extendedRegexp = true
+
+[user]
+	name = Alan Potter
+	email = apotter@formotiv.com
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

@@ -1,5 +1,5 @@
 gui:
-  scrollHeight: 0.5
+  scrollHeight: 10
   expandFocusedSidePanel: true
   theme:
     selectedLineBgColor:
@@ -11,4 +11,14 @@ promptToReturnFromSubprocess: false
 skipRewordInEditorWarning: false
 notARepository: skip
 git:
+  autoFetch: true
   autoRefresh: false
+
+keybinding:
+  universal:
+    scrollUpMain: <pgup>
+    scrollDownMain: <pgdown>
+    scrollUpMain-alt1: K
+    scrollDownMain-alt1: J
+    scrollUpMain-alt2: <c-u>
+    scrollDownMain-alt2: <c-d>

@@ -1,9 +1,5 @@
 export APPMAP_TELEMETRY_DISABLED=true APPMAP_ZENDESK_DEBUG=true
 
-if [ -x /usr/libexec/path_helper ]; then
-  eval "$(/usr/libexec/path_helper)"
-fi
-
 set -k
 setopt prompt_subst pushdignoredups no_banghist ignore_eof rmstarsilent shwordsplit
 set -o emacs
@@ -52,10 +48,10 @@ alias hk=heroku
 alias today='date +"%Y%m%d"'
 alias pyproj="echo 'layout python' > .envrc && direnv allow"
 alias rbproj="echo 'layout ruby' > .envrc && direnv allow"
-alias st=/usr/local/bin/stree
 alias ajfb="./gradlew clean check integrationTest && bin/test"
 alias gw="./gradlew"
 alias mw="./mvnw"
+alias pip="uv pip"
 
 latest() {
   greadlink -f "$@${@:+/}$(ls -t "$@" | head -1)"
@@ -79,7 +75,7 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+source $HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh
 # export PS1="%n@%m %1~ %# "
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
@@ -115,7 +111,7 @@ travis_debug() {
 }
 
 pipnve() {
-  env -u PIP_REQUIRE_VIRTUALENV pip "$@"
+  env -u PIP_REQUIRE_VIRTUALENV uv pip "$@"
 }
 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -123,13 +119,13 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export EDITOR=vi
 
 source $(brew --prefix asdf)/libexec/asdf.sh
-source ~/.asdf/plugins/java/set-java-home.zsh
-export JAVA_OUTPUT_OPTIONS="-Xshare:off"
+#source ~/.asdf/plugins/java/set-java-home.zsh
+#export JAVA_OUTPUT_OPTIONS="-Xshare:off"
 
 eval "$(asdf exec direnv hook zsh)"
 
 # because homebrew told me I should:
-export PATH="/usr/local/sbin:$HOME/.local/bin:$PATH:"
+export PATH="$HOMEBREW_PREFIX/sbin:$HOME/.local/bin:$PATH:"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 export LDFLAGS="-L$(brew --prefix openssl@3)/lib"
 export CPPFLAGS="-I$(brew --prefix openssl@3)/include"
@@ -168,4 +164,7 @@ appmaps() {
 export SLACK_DEVELOPER_MENU=true
 
 echo "zshrc: PATH: $PATH"
+
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

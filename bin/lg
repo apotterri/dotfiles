@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+alacritty --working-directory "$PWD" -e lazygit

@@ -1,3 +1,5 @@
+source $HOME/.profile
+
 export LESS=-iRX
 
 # >>> coursier install directory >>>
