@@ -7,7 +7,7 @@
     onens = log --oneline --name-status
     onea = log --format=\"%C(auto) %h %an %d %s\"
 
-    prb = "!f() { [[ ! -z \"$@\" ]] && git checkout -b \"$@\"_$(date +'%Y%m%d') || echo 'Need branch name!'; }; f"
+    prb = "!f() { [ ! -z \"$@\" ] && git checkout -b \"$@\"_$(date +'%Y%m%d') || echo 'Need branch name!'; }; f"
     fix = commit --fixup
     pushf = push --force-with-lease
     pushfn = push --force-with-lease --no-verify
@@ -61,8 +61,8 @@
     showStash = true
 [cola]
 	expandtab = true
-[diff]
-    external = difft
+# [diff]
+#     external = difft
 
 [difftool "bcomp"]
   trustExitCode = true
@@ -85,3 +85,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[credential]
+	helper = "!f() { /root/.vscode-server/bin/fabdb6a30b49f79a7aba0f2ad9df9b399473380f/node /tmp/vscode-remote-containers-e844cfe6-74e5-4c71-8e20-d156d918323b.js git-credential-helper $*; }; f"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-set -x
+set -ex
 
-cd "$(dirname "${BASH_SOURCE}")";
+d=$(dirname "${BASH_SOURCE}")
+ln -sf "$d"/{bin,.gitconfig,.gitignore,.vimrc,.profile,.zshrc} .
 
-git pull origin main;

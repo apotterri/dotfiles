@@ -1,3 +1,4 @@
+source ~/.profile
 export APPMAP_TELEMETRY_DISABLED=true APPMAP_ZENDESK_DEBUG=true
 
 set -k
@@ -73,17 +74,21 @@ if type brew &>/dev/null; then
 
   autoload -Uz compinit
   compinit
+else
+  if [[ -f /etc/bash_completion.d/git-prompt ]]; then
+    source /etc/bash_completion.d/git-prompt
+  fi
 fi
 
-source $HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh
+if [[ -f $HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh ]]; then
+  source $HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh
+fi
+
 # export PS1="%n@%m %1~ %# "
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM_="verbose name"
 export PROMPT=$'$(__git_ps1 "%s") %F{cyan}$(gdate +"%Y%m%d %H%M%S")%F{default}\n%n@%m %1~ %# '
-
-export PATH="$HOME/bin:$PATH"
-
 
 zstyle ':completion:*' matcher-list '' \
   'm:{a-z\-}={A-Z\_}' \
@@ -111,24 +116,10 @@ travis_debug() {
 }
 
 pipnve() {
-  env -u PIP_REQUIRE_VIRTUALENV uv pip "$@"
+  UV_SYSTEM_PYTHON=true uv pip "$@"
 }
 
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-export EDITOR=vi
-
-source $(brew --prefix asdf)/libexec/asdf.sh
-#source ~/.asdf/plugins/java/set-java-home.zsh
-#export JAVA_OUTPUT_OPTIONS="-Xshare:off"
-
-eval "$(asdf exec direnv hook zsh)"
-
-# because homebrew told me I should:
-export PATH="$HOMEBREW_PREFIX/sbin:$HOME/.local/bin:$PATH:"
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-export LDFLAGS="-L$(brew --prefix openssl@3)/lib"
-export CPPFLAGS="-I$(brew --prefix openssl@3)/include"
 
 export HISTSIZE=1000000
 export APPLE_SSH_ADD_BEHAVIOR=macos
@@ -140,7 +131,6 @@ export APPLE_SSH_ADD_BEHAVIOR=macos
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="$HOME/.sdkman"
 #[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
 appmap_start() {
   curl -XPOST localhost:${1=8080}/_appmap/record
@@ -167,4 +157,3 @@ echo "zshrc: PATH: $PATH"
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-

@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-alacritty --working-directory "$PWD" -e lazygit
+alacritty --working-directory "$PWD"  --title "$PWD" -e lazygit
